@@ -2,4 +2,6 @@ discord.py
 python-dotenv
 requests
 Flask==2.3.3
+beautifulsoup4
+
 
