@@ -49,5 +49,5 @@ async def cek_pengumuman():
     if baru:
         await channel.send(f"<@&{ROLE_ID}>📢 Penugasan baru:\n{baru}")
 
-webserver.keep_alive()
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
+webserver.keep_alive()
