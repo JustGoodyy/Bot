@@ -6,6 +6,7 @@ from scraper import cek_pengumuman_baru
 import logging
 from dotenv import load_dotenv
 import os
+import threading
 import webserver
 
 load_dotenv()
@@ -49,5 +50,6 @@ async def cek_pengumuman():
     if baru:
         await channel.send(f"<@&{ROLE_ID}>📢 Penugasan baru:\n{baru}")
 
-bot.run(token, log_handler=handler, log_level=logging.DEBUG)
-webserver.keep_alive()
+def run_bot():
+    threading.Thread(target=webserver.keep_alive).start()
+    bot.run(token, log_handler=handler, log_level=logging.DEBUG)
